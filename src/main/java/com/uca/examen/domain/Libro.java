@@ -24,7 +24,7 @@ public class Libro {
 	@Column(name="s_titulo")
 	private String nombreTitulo;
 	
-	@Column(name="autor")
+	@Column(name="s_autor")
 	private String nombreAutor;
 	
 	@JoinColumn(name="c_categoria")
@@ -43,6 +43,91 @@ public class Libro {
 	public Libro() {}
 	
 	
+	
+	public Integer getCodigoLibro() {
+		return codigoLibro;
+	}
+
+
+
+	public void setCodigoLibro(Integer codigoLibro) {
+		this.codigoLibro = codigoLibro;
+	}
+
+
+
+	public String getNombreTitulo() {
+		return nombreTitulo;
+	}
+
+
+
+	public void setNombreTitulo(String nombreTitulo) {
+		this.nombreTitulo = nombreTitulo;
+	}
+
+
+
+	public String getNombreAutor() {
+		return nombreAutor;
+	}
+
+
+
+	public void setNombreAutor(String nombreAutor) {
+		this.nombreAutor = nombreAutor;
+	}
+
+
+
+	public Categoria getCodigoCategoria() {
+		return codigoCategoria;
+	}
+
+
+
+	public void setCodigoCategoria(Categoria codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
+	}
+
+
+
+	public Date getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+
+
+	public void setFechaIngreso(Date fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+
+
+
+	public Boolean getEstadoLibro() {
+		return estadoLibro;
+	}
+
+
+
+	public void setEstadoLibro(Boolean estadoLibro) {
+		this.estadoLibro = estadoLibro;
+	}
+
+
+
+	public String getNombreIsbn() {
+		return nombreIsbn;
+	}
+
+
+
+	public void setNombreIsbn(String nombreIsbn) {
+		this.nombreIsbn = nombreIsbn;
+	}
+
+
+
 	//Delegate
 	public String getNombreCategoria() {
 		if(this.codigoCategoria==null)return "-";

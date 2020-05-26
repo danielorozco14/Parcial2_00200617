@@ -1,5 +1,8 @@
 package com.uca.examen.controller;
 
+import java.sql.Date;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,10 +69,13 @@ public class MainController {
 	@GetMapping("/libro")
 	public ModelAndView insertLibro() {
 		ModelAndView mav = new ModelAndView();
-		Categoria cat = new Categoria();
+		Libro libro = new Libro();
+		List<Categoria> listCategoria = categoriaDao.findAll();
 		
-		mav.addObject("categoria", cat);
-		mav.setViewName("categoria");
+		mav.addObject("libro", libro);
+		mav.addObject("categoria", listCategoria);
+		
+		mav.setViewName("libro");
 		return mav;
 	}
 	
@@ -83,6 +89,14 @@ public class MainController {
 				//	mav.setViewName("categoria");
 			//}else {
 				//categoriaDao.insertCategoria(cat);
+				long millis = System.currentTimeMillis();
+				Date date = new Date(millis);
+				Categoria cat = new Categoria();
+				cat.setCodigoCategoria(Integer.parseInt(result.getFieldValue("codigoCategoria").toString()));
+				
+				libro.setCodigoCategoria(cat);
+				libro.setFechaIngreso(date);
+			
 				libroDao.insertLibro(libro);//BORRAR ESTA LINEA UNA VEZ SE PUEDA VALIDAR
 				mav.setViewName("index");
 			//}
@@ -91,6 +105,26 @@ public class MainController {
 		}		
 		return mav;
 	}
+	
+	//Fin de insercion de una categoria
+	
+	
+	//TODO 3: Inicio de parte de mostrar todos los datos
+	
+	@GetMapping("/libros")
+	public ModelAndView showLibros() {
+		ModelAndView mav = new ModelAndView();
+		Libro libro = new Libro();
+		List<Categoria> listCategoria = categoriaDao.findAll();
+		
+		mav.addObject("libro", libro);
+		mav.addObject("categoria", listCategoria);
+		
+		mav.setViewName("libro");
+		return mav;
+	}
+	
+	
 	
 	
 	
