@@ -52,11 +52,6 @@ public class Libro {
 			}
 		}
 		return "";
-	}
-	
-	
-	
-	
-	
+	}	
 	
 }
