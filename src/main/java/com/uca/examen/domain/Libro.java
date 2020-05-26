@@ -127,16 +127,5 @@ public class Libro {
 	}
 
 
-
-	//Delegate
-	public String getNombreCategoria() {
-		if(this.codigoCategoria==null)return "-";
-		else {
-			for(int i=0;i<codigoCategoria.getLibros().size();i++) {
-				return codigoCategoria.getLibros().get(i).getNombreCategoria();
-			}
-		}
-		return "";
-	}	
 	
 }

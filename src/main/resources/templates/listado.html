@@ -8,33 +8,35 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<title>Listado de Contribuyentes</title>
+<title>Listado de Libros</title>
 <link rel = "stylesheet"  type = "text/css"   href = "index.css" />
 </head>
 <body>
-	<h3>Listado de Contribuyentes</h3>
+	<h3>Listado de Libros</h3>
 	
 		<table class="table">
 			<thead>
 				<th scope="col">Codigo</th>
-				<th scope="col">Importancia </th>
-				<th scope="col">Nombre </th>
-				<th scope="col">Apellido </th>
-				<th scope="col">NIT </th>
-				<th scope="col">Fecha ingreso </th>
+				<th scope="col">Titulo </th>
+				<th scope="col">Autor </th>
+				<th scope="col">Categoria </th>
+				<th scope="col">Fecha Ingreso </th>
+				<th scope="col">Estado </th>
+				<th scope="col">ISBN </th>
 				</thead>
-				<th:block th:each="c,row:${contribuyentes}">
+				<th:block th:each="c,row:${libros}">
 					<tr>
-						<th scope="row" th:text="${c.codigoContribuyente}"/>
-						<th scope="row" th:text="${c.getNombreImportancia()}"/>
-						<th scope="row" th:text="${c.nombreContribuyente}"/>
-						<th scope="row" th:text="${c.apellidoContribuyente}"/>
-						<th scope="row" th:text="${c.nitContribuyente}"/>
-						<th scope="row" th:text="${c.fechaIngreso}"/>				
+						<th scope="row" th:text="${c.codigoLibro}"/>
+						<th scope="row" th:text="${c.nombreTitulo}"/>
+						<th scope="row" th:text="${c.nombreAutor}"/>
+						<th scope="row" th:text="${c.codigoCategoria.getNombreCategoria()}"/>
+						<th scope="row" th:text="${c.fechaIngreso}"/>
+						<th scope="row" th:text="${c.estadoLibro}"/>
+						<th scope="row" th:text="${c.nombreIsbn}"/>				
 					</tr>			
 				</th:block>		
 		</table><br>
-		<a href="/inicio">Ingresar Otro Contribuyente</a>
+		<a href="/index">Inicio</a>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	

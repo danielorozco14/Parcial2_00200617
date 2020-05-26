@@ -94,6 +94,8 @@ public class MainController {
 				Categoria cat = new Categoria();
 				cat.setCodigoCategoria(Integer.parseInt(result.getFieldValue("codigoCategoria").toString()));
 				
+				//libro.setEstadoLibro(result.getFieldValue("estadoLibro"));
+				System.out.println(result.getFieldValue("estadoLibro"));
 				libro.setCodigoCategoria(cat);
 				libro.setFechaIngreso(date);
 			
@@ -106,7 +108,7 @@ public class MainController {
 		return mav;
 	}
 	
-	//Fin de insercion de una categoria
+	//Fin de insercion de un libro
 	
 	
 	//TODO 3: Inicio de parte de mostrar todos los datos
@@ -115,14 +117,20 @@ public class MainController {
 	public ModelAndView showLibros() {
 		ModelAndView mav = new ModelAndView();
 		Libro libro = new Libro();
-		List<Categoria> listCategoria = categoriaDao.findAll();
+		List<Libro> listLibro = null;
 		
-		mav.addObject("libro", libro);
-		mav.addObject("categoria", listCategoria);
+		try {
+			listLibro=libroDao.findAll();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
-		mav.setViewName("libro");
+		mav.addObject("libros", listLibro);
+		mav.setViewName("listado");
 		return mav;
 	}
+	
+	//Fin de mosttrar los libros
 	
 	
 	

@@ -41,7 +41,7 @@
 		  		</div>	
 		  		
 		  		<div class="form-group">	
-			  		<input type="radio" th:field="*{estadoLibro}" th:value="${false}">
+			  		<input type="radio" th:field="*{estadoLibro}" th:value="${true}">
 					<span th:errors="*{estadoLibro}" style="color:#E81505"></span>
 				</div>
 				
@@ -55,7 +55,7 @@
 		  		  		
 		  		
 				<button type="submit" class="btn btn-primary">Agregar</button>
-				<a href='/all' >Ver Listado</a>
+				<a href='/libros' >Ver Listado</a>
 				
 		</form>
 		
